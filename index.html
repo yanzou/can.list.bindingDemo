@@ -11,29 +11,77 @@
     <meta name="language" content="en"/>
     <meta name="keywords" content=""/>
 
-    <script type="text/javascript" src="libs/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="libs/jquery.min.js"></script>
     <script type="text/javascript" src="libs/can.jquery-1.1.5.js"></script>
-
+    <script type="text/javascript" src="libs/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="libs/bootstrap.min.css"/>
 
     <script type="text/javascript">
         $(function () {
+            var data = new can.Model.List([
+                {a: 1, b: 333, c: 'adasd'},
+                {a: 2, b: 555, c: 'adfaf'},
+                {a: 3, b: 666, c: 'adfa'},
+                {a: 4, b: 777, c: 'sgfsgs'}
+            ]);
 
+            $('#container').html(
+                can.view('tpl', {data: data})
+            );
 
+            $('a.add').click(function () {
+                data.push({a: 1,b: 2,c: 3});
+            })
         });
     </script>
-
 
 
 </head>
 
 <body>
 
-    <h1>Demo - Can.List demo</h1>
+<h1>Demo - Can.List demo</h1>
 
-    <div id="container"></div>
+<div class="btn-group">
+    <a class="btn btn-primary add">Add</a>
+</div>
 
-    <style type="text/css">
-    </style>
+<h3>Table:</h3>
+
+<div id="container">
+
+</div>
+
+<style type="text/css">
+    body {padding: 10px;}
+    #container {
+        width: 60%;
+        /*height: 300px;*/
+        /*border: 1px solid #c1c39a;*/
+        /*overflow: auto;*/
+    }
+</style>
+
+<script type='text/ejs' id='tpl'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.each(function(item) { %>
+            <tr>
+                <td><%= item.a %></td>
+                <td><%= item.b %></td>
+                <td><%= item.c %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</script>
 
 </body>
 </html>
