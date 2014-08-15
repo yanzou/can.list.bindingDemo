@@ -22,3 +22,26 @@ a demo of can.js List binding
             })
         });
     </script>
+
+
+```html
+    <script type='text/ejs' id='tpl'>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.each(function(item) { %>
+                <tr>
+                    <td><%= item.a %></td>
+                    <td><%= item.b %></td>
+                    <td><%= item.c %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </script>
