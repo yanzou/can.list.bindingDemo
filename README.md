@@ -3,6 +3,9 @@ can.list.bindingDemo
 
 a demo of can.js List binding 
 
+
+![Image](./sc_shot.jpg?raw=true)
+
 ```javascript
     $(function () {
         var data = new can.Model.List([
