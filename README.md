@@ -23,8 +23,10 @@ a demo of can.js List binding
             data.push({a: 1,b: 2,c: 3});
         })
     });
+```
 
-
+html
+-----------------------------
 
 ```html
     <script type='text/ejs' id='tpl'>
